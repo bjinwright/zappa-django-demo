@@ -1,0 +1,6 @@
+{
+    "dev": {
+        "django_settings": "mingy.settings", 
+        "s3_bucket": "ipoots-zappa"
+    }
+}

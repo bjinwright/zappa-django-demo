@@ -8,6 +8,9 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.idea/
+*.env
+*.sqlite3
 env/
 build/
 develop-eggs/
