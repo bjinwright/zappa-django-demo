@@ -85,6 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': env('DATABASE_ENGINE','django.db.backends.sqlite3'),
         'NAME': env('DATABASE_NAME',os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASSWORD'),
         'HOST': env('DATABASE_HOST'),
         'PORT': env('DATABASE_PORT')
@@ -150,3 +151,14 @@ STATIC_URL = env('STATIC_URL',"https://{0}/{1}/".format(AWS_S3_CUSTOM_DOMAIN, ST
 MEDIAFILES_LOCATION = env('MEDIAFILES_LOCATION','mingy_media')
 MEDIA_URL = "https://{0}/{1}/".format(AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'util.custom_storages.MediaStorage'
+
+CACHES = {
+    "default": {
+        "BACKEND": env('CACHE_BACKEND',"django_redis.cache.RedisCache"),
+        "LOCATION": env('CACHE_LOCATION',"redis://127.0.0.1:6379/1"),
+        "OPTIONS": {
+            "CLIENT_CLASS": env("CACHE_CLIENT_CLASS",
+                                "django_redis.client.DefaultClient"),
+        }
+    }
+}

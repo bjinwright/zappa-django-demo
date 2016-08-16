@@ -1,0 +1,11 @@
+machine:
+  python:
+    version: python2.7
+
+deployment:
+   dev:
+      branch: develop
+      commands:
+         - ./manage.py collectstatic --no-input
+         - zappa update dev
+

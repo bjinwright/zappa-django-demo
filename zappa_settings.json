@@ -1,6 +1,8 @@
 {
     "dev": {
         "django_settings": "mingy.settings", 
-        "s3_bucket": "ipoots-zappa"
+        "s3_bucket": "ipoots-zappa",
+        "remote_env_bucket": "ipoots-zappa",
+        "remote_env_file": "mingy-config.json"
     }
 }
